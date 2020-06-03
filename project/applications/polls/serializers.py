@@ -75,14 +75,14 @@ class PollAnswerSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         question = validated_data['question']
         request = self.context['request']
-        if question.question_type == 'text':
+        if question.question_type == PollQuestion.TEXT:
             poll_answer = PollAnswer.objects.create(
                 answer_text=validated_data['answer_text'],
                 question=question,
                 created_at=timezone.now(),
                 user=request.user
             )
-        elif question.question_type == 'single':
+        elif question.question_type == PollQuestion.SINGLE:
             if len(validated_data['answer_choice']) > 1:
                 raise ValidationError('Only one choice allowed')
             else:

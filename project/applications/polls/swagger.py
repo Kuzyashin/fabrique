@@ -27,6 +27,14 @@ def polls_create_schema():
     )
 
 
+def polls_delete_schema():
+    return swagger_auto_schema(
+        operation_id='Delete poll',
+        operation_summary="Удаление опросa",
+        operation_description="Доступно только для суперюзера"
+    )
+
+
 def polls_update_schema():
     return swagger_auto_schema(
         operation_id='Update poll',
@@ -59,6 +67,14 @@ def poll_question_create_schema():
     )
 
 
+def poll_question_delete_schema():
+    return swagger_auto_schema(
+        operation_id='Delete question',
+        operation_summary="Удаление вопроса",
+        operation_description="Работает только для суперюзера"
+    )
+
+
 def poll_question_update_schema():
     return swagger_auto_schema(
         operation_id='Update question',
@@ -87,6 +103,14 @@ def question_answer_create_schema():
     return swagger_auto_schema(
         operation_id='Create answer',
         operation_summary="Создание варианта ответа",
+        operation_description="Работает только для суперюзера"
+    )
+
+
+def question_answer_delete_schema():
+    return swagger_auto_schema(
+        operation_id='Delete answer',
+        operation_summary="Удаление варианта ответа",
         operation_description="Работает только для суперюзера"
     )
 
